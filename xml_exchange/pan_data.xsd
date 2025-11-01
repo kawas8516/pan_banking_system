@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Citizens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Citizen" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PAN" type="xs:string"/>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="DOB" type="xs:date"/>
+              <xs:element name="Address" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

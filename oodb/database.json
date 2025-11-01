@@ -1,0 +1,11 @@
+{
+    "citizens": [
+        {
+            "pan_number": "AGMPDKM2456L",
+            "name": "Kawas",
+            "dob": "2002-07-01",
+            "address": "Pune"
+        }
+    ],
+    "accounts": []
+}
