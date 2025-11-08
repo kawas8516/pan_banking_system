@@ -1,21 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="Citizens">
+  <!-- Define complex types for reuse -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="City" type="xs:string"/>
+      <xs:element name="State" type="xs:string"/>
+      <xs:element name="PostalCode" type="xs:string"/>
+      <xs:element name="Country" type="xs:string" default="India"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AccountType">
+    <xs:sequence>
+      <xs:element name="AccountNumber" type="xs:string"/>
+      <xs:element name="AccountType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="savings"/>
+            <xs:enumeration value="current"/>
+            <xs:enumeration value="fixed_deposit"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Balance" type="xs:decimal"/>
+      <xs:element name="BranchName" type="xs:string"/>
+      <xs:element name="Status" type="xs:string" default="active"/>
+      <xs:element name="OpenDate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Root element definition -->
+  <xs:element name="PanBankingData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Citizen" maxOccurs="unbounded">
+        <xs:element name="Citizens">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PAN" type="xs:string"/>
-              <xs:element name="Name" type="xs:string"/>
-              <xs:element name="DOB" type="xs:date"/>
-              <xs:element name="Address" type="xs:string"/>
+              <xs:element name="Citizen" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="PAN" type="PANType"/>
+                    <xs:element name="Name" type="xs:string"/>
+                    <xs:element name="DOB" type="xs:date"/>
+                    <xs:element name="Address" type="AddressType"/>
+                    <xs:element name="Accounts" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Account" type="AccountType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:ID" use="required"/>
+                  <xs:attribute name="lastUpdated" type="xs:dateTime"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Metadata">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ExportDate" type="xs:dateTime"/>
+              <xs:element name="ExportSource" type="xs:string"/>
+              <xs:element name="RecordCount" type="xs:integer"/>
+              <xs:element name="Version" type="xs:string" default="1.0"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <!-- Custom type for PAN validation -->
+  <xs:simpleType name="PANType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{5}[0-9]{4}[A-Z]{1}"/>
+      <xs:length value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
 
 </xs:schema>

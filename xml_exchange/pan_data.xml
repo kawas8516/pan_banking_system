@@ -1,2 +1,23 @@
-<?xml version='1.0' encoding='utf-8'?>
-<Citizens><Citizen><PAN>AGMPDKM2456L</PAN><Name>Kawas</Name><DOB>2002-07-01</DOB><Address>Pune</Address></Citizen></Citizens>
+<?xml version="1.0" ?>
+<PanBankingData>
+  <Citizens>
+    <Citizen id="cit_AGMPDKM2456L" lastUpdated="2025-11-03T16:22:02.660135">
+      <PAN>AGMPDKM2456L</PAN>
+      <Name>Kawas</Name>
+      <DOB>2002-07-01</DOB>
+      <Address>
+        <Street>Pune</Street>
+        <City>Unknown</City>
+        <State>Unknown</State>
+        <PostalCode>Unknown</PostalCode>
+        <Country>India</Country>
+      </Address>
+    </Citizen>
+  </Citizens>
+  <Metadata>
+    <ExportDate>2025-11-03T16:22:02.660179</ExportDate>
+    <ExportSource>PAN Banking System - Site A</ExportSource>
+    <RecordCount>1</RecordCount>
+    <Version>1.0</Version>
+  </Metadata>
+</PanBankingData>
