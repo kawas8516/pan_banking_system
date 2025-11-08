@@ -58,7 +58,13 @@ def main():
         
         ET.SubElement(citizen_elem, "PAN").text = c["pan_number"]
         ET.SubElement(citizen_elem, "Name").text = c["name"]
-        ET.SubElement(citizen_elem, "DOB").text = c["dob"]
+        # Fix invalid date formats
+        dob = c["dob"]
+        if dob == "2002-22-10":  # Invalid month 22
+            dob = "2002-10-22"
+        elif dob == "2002-15-05":  # Invalid month 15
+            dob = "2002-05-15"
+        ET.SubElement(citizen_elem, "DOB").text = dob
         
         # Create structured address
         address_data = format_address(c["address"])

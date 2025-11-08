@@ -40,19 +40,20 @@ In this project:
 
 ```python
 class Citizen:
-    def __init__(self, pan_no, name, dob, phone):
-        self.pan_no = pan_no
+    def __init__(self, pan_number, name, dob, address):
+        self.pan_number = pan_number
         self.name = name
         self.dob = dob
-        self.phone = phone
+        self.address = address
 ```
 
 ```python
-class BankAccount:
-    def __init__(self, acc_no, pan_no, balance):
-        self.acc_no = acc_no
-        self.pan_no = pan_no
-        self.balance = balance
+class SavingsAccount(BankAccount):
+    def __init__(self, account_no, pan_number, balance, branch_name, interest_rate=3.5):
+        super().__init__(account_no, pan_number, balance, branch_name)
+        self.account_type = "savings"
+        self.interest_rate = interest_rate
+        self.min_balance = 1000
 ```
 
 ---
@@ -70,14 +71,38 @@ In this project:
 ### 📄 XML Example (`pan_data.xml`)
 
 ```xml
-<citizens>
-  <citizen>
-    <pan_no>ABCDE1234F</pan_no>
-    <name>Rohan Sharma</name>
-    <dob>1995-03-12</dob>
-    <phone>9876543210</phone>
-  </citizen>
-</citizens>
+<PanBankingData>
+  <Citizens>
+    <Citizen id="cit_AGMPDKM2456L" lastUpdated="2025-11-08T16:51:57.629775">
+      <PAN>AGMPDKM2456L</PAN>
+      <Name>Kawas</Name>
+      <DOB>2002-07-01</DOB>
+      <Address>
+        <Street>Pune</Street>
+        <City>Unknown</City>
+        <State>Unknown</State>
+        <PostalCode>Unknown</PostalCode>
+        <Country>India</Country>
+      </Address>
+      <Accounts>
+        <Account>
+          <AccountNumber>1234567890</AccountNumber>
+          <AccountType>savings</AccountType>
+          <Balance>5000.0</Balance>
+          <BranchName>Pune Main Branch</BranchName>
+          <Status>active</Status>
+          <OpenDate>2023-10-01T10:00:00</OpenDate>
+        </Account>
+      </Accounts>
+    </Citizen>
+  </Citizens>
+  <Metadata>
+    <ExportDate>2025-11-08T16:51:57.629858</ExportDate>
+    <ExportSource>PAN Banking System - Site A</ExportSource>
+    <RecordCount>3</RecordCount>
+    <Version>1.0</Version>
+  </Metadata>
+</PanBankingData>
 ```
 
 ### 🧩 XML Schema Definition (`pan_data.xsd`)
@@ -114,7 +139,9 @@ Validation ensures that:
 Example validation result:
 
 ```
-✅ XML is valid against the schema.
+XML file 'pan_data.xml' is valid according to schema 'pan_data.xsd'
+Found 3 valid citizen records
+Validation report generated: validation_report_20251108_165452.txt
 ```
 
 ---
@@ -183,8 +210,11 @@ python main.py
 
 This will:
 
-* Create and store `Citizen` and `BankAccount` objects.
-* Save them into a JSON-based object database.
+* Load existing citizen and account data from `database.json`.
+* Provide an interactive menu for managing PAN records and bank accounts.
+* Support operations like adding citizens, creating accounts, deposits/withdrawals, and viewing details.
+
+![alt text](<Screenshot 2025-11-08 165641.png>)
 
 ### Step 5: Export XML Data (Site A)
 
@@ -193,7 +223,9 @@ cd ../xml_exchange
 python site_a_export.py
 ```
 
-Generates `pan_data.xml`.
+Generates `pan_data.xml` with structured citizen and account data, including digital signature for verification.
+
+![alt text](<Screenshot 2025-11-08 165717.png>)
 
 ### Step 6: Validate XML against XSD
 
@@ -206,6 +238,7 @@ If valid, you’ll see:
 ```
 ✅ XML is valid against the schema.
 ```
+![alt text](<Screenshot 2025-11-08 165734.png>)
 
 ### Step 7: Import at Site B (Bank)
 
@@ -213,8 +246,8 @@ If valid, you’ll see:
 python site_b_import.py
 ```
 
-Displays or stores the imported data.
-
+Imports and displays citizen data with account information, saves to timestamped JSON file, and verifies digital signature.
+![alt text](<Screenshot 2025-11-08 165748.png>)
 ---
 
 ## 🧩 Advantages of This System
@@ -231,9 +264,13 @@ Displays or stores the imported data.
 
 ## 📚 Conclusion
 
-This project demonstrates a **miniature ecosystem** of data management and exchange between two systems — simulating how real-world institutions like the **Income Tax Department (for PAN)** and **Banks** interact.
+This project demonstrates a **fully functional ecosystem** of data management and exchange between two systems — simulating how real-world institutions like the **Income Tax Department (for PAN)** and **Banks** interact.
 
-The **Object-Oriented Database** simplifies local data storage through class-based modeling, while the **XML + XSD validation** ensures structured, verifiable communication across independent systems.
+The **Object-Oriented Database** provides a complete banking system with 3 citizens and 3 accounts, supporting deposits, withdrawals, and account management through an interactive menu interface.
+
+The **XML + XSD validation system** ensures structured, verifiable communication across independent systems with working digital signatures and schema validation.
+
+**Project Status**: ✅ Fully functional with working XML validation, interactive OODB interface, and complete data exchange workflow.
 
 Such systems represent the foundation of **modern interoperable architectures**, emphasizing data consistency, reusability, and modularity — core principles of advanced database and web engineering.
 

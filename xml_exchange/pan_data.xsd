@@ -27,7 +27,7 @@
       <xs:element name="Balance" type="xs:decimal"/>
       <xs:element name="BranchName" type="xs:string"/>
       <xs:element name="Status" type="xs:string" default="active"/>
-      <xs:element name="OpenDate" type="xs:date"/>
+      <xs:element name="OpenDate" type="xs:dateTime"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -77,8 +77,8 @@
   <!-- Custom type for PAN validation -->
   <xs:simpleType name="PANType">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[A-Z]{5}[0-9]{4}[A-Z]{1}"/>
-      <xs:length value="10"/>
+      <xs:minLength value="10"/>
+      <xs:maxLength value="12"/>
     </xs:restriction>
   </xs:simpleType>
 

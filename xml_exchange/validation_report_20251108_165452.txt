@@ -1,0 +1,16 @@
+XML Validation Report
+===================
+
+Date: 2025-11-08 16:54:52
+XML File: pan_data.xml
+XSD Schema: pan_data.xsd
+
+Validation Result: VALID
+
+Schema Information:
+  Target Namespace: 
+  Element Count: 1
+  Complex Type Count: 3
+
+Required Elements:
+  - PanBankingData
