@@ -6,6 +6,55 @@
             "dob": "2002-07-01",
             "address": "Pune"
         }
+        ,
+        {
+            "pan_number": "AGMPDKM2456M",
+            "name": "Nandini",
+            "dob": "2002-22-10",
+            "address": "Pune"
+        }
+        ,
+        {
+            "pan_number": "DMK5677LKL",
+            "name": "Mehak Syed",
+            "dob": "2002-15-05",
+            "address": "Bombay"
+        }
     ],
-    "accounts": []
+    "accounts": [
+        {
+            "account_no": "1234567890",
+            "pan_number": "AGMPDKM2456L",
+            "balance": 5000.0,
+            "branch_name": "Pune Main Branch",
+            "account_type": "savings",
+            "open_date": "2023-10-01T10:00:00",
+            "status": "active",
+            "interest_rate": 3.5,
+            "min_balance": 1000
+        },
+        {
+            "account_no": "0987654321",
+            "pan_number": "AGMPDKM2456M",
+            "balance": 10000.0,
+            "branch_name": "Pune Main Branch",
+            "account_type": "current",
+            "open_date": "2023-10-05T14:30:00",
+            "status": "active",
+            "overdraft_limit": 5000.0,
+            "overdraft_fee": 100.0
+        },
+        {
+            "account_no": "2468013579",
+            "pan_number": "DMK5677LKL",
+            "balance": 7500.0,
+            "branch_name": "Bombay Main Branch",
+            "account_type": "savings",
+            "open_date": "2023-10-10T09:15:00",
+            "status": "active",
+            "interest_rate": 4.0,
+            "min_balance": 1500
+        }
+    ],
+    "transactions": []
 }

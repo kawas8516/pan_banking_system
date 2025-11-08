@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <PanBankingData>
   <Citizens>
-    <Citizen id="cit_AGMPDKM2456L" lastUpdated="2025-11-03T16:22:02.660135">
+    <Citizen id="cit_AGMPDKM2456L" lastUpdated="2025-11-08T16:43:44.814702">
       <PAN>AGMPDKM2456L</PAN>
       <Name>Kawas</Name>
       <DOB>2002-07-01</DOB>
@@ -12,12 +12,66 @@
         <PostalCode>Unknown</PostalCode>
         <Country>India</Country>
       </Address>
+      <Accounts>
+        <Account>
+          <AccountNumber>1234567890</AccountNumber>
+          <AccountType>savings</AccountType>
+          <Balance>5000.0</Balance>
+          <BranchName>Pune Main Branch</BranchName>
+          <Status>active</Status>
+          <OpenDate>2023-10-01T10:00:00</OpenDate>
+        </Account>
+      </Accounts>
+    </Citizen>
+    <Citizen id="cit_AGMPDKM2456M" lastUpdated="2025-11-08T16:43:44.814754">
+      <PAN>AGMPDKM2456M</PAN>
+      <Name>Nandini</Name>
+      <DOB>2002-22-10</DOB>
+      <Address>
+        <Street>Pune</Street>
+        <City>Unknown</City>
+        <State>Unknown</State>
+        <PostalCode>Unknown</PostalCode>
+        <Country>India</Country>
+      </Address>
+      <Accounts>
+        <Account>
+          <AccountNumber>0987654321</AccountNumber>
+          <AccountType>current</AccountType>
+          <Balance>10000.0</Balance>
+          <BranchName>Pune Main Branch</BranchName>
+          <Status>active</Status>
+          <OpenDate>2023-10-05T14:30:00</OpenDate>
+        </Account>
+      </Accounts>
+    </Citizen>
+    <Citizen id="cit_DMK5677LKL" lastUpdated="2025-11-08T16:43:44.814771">
+      <PAN>DMK5677LKL</PAN>
+      <Name>Mehak Syed</Name>
+      <DOB>2002-15-05</DOB>
+      <Address>
+        <Street>Bombay</Street>
+        <City>Unknown</City>
+        <State>Unknown</State>
+        <PostalCode>Unknown</PostalCode>
+        <Country>India</Country>
+      </Address>
+      <Accounts>
+        <Account>
+          <AccountNumber>2468013579</AccountNumber>
+          <AccountType>savings</AccountType>
+          <Balance>7500.0</Balance>
+          <BranchName>Bombay Main Branch</BranchName>
+          <Status>active</Status>
+          <OpenDate>2023-10-10T09:15:00</OpenDate>
+        </Account>
+      </Accounts>
     </Citizen>
   </Citizens>
   <Metadata>
-    <ExportDate>2025-11-03T16:22:02.660179</ExportDate>
+    <ExportDate>2025-11-08T16:43:44.814781</ExportDate>
     <ExportSource>PAN Banking System - Site A</ExportSource>
-    <RecordCount>1</RecordCount>
+    <RecordCount>3</RecordCount>
     <Version>1.0</Version>
   </Metadata>
 </PanBankingData>
